@@ -44,7 +44,7 @@ type User struct {
 func main() {
 	ins := oe.NewEncrypter("123467")
 	var u User
-	err := ins.Decrypt("67384", &u, oe.BASE64)
+	err := ins.Decrypt("67384", &u, nil)
 	if err != nil {
 		panic(err)
 	}
