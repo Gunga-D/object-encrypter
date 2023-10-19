@@ -1,6 +1,6 @@
 # go-object-encrypter
 
-[![build status](https://badgen.net/badge/build/latest/green?icon=github)]
+[build status](https://badgen.net/badge/build/latest/green?icon=github)
 
 > Implementation of node js library object encrypter on golang
 
