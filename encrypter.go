@@ -3,6 +3,7 @@ package object_encrypter
 import (
 	"encoding/json"
 	"fmt"
+	"strings"
 )
 
 type Encrypter interface {
@@ -24,7 +25,12 @@ func (e *encrypter) Decrypt(text string, v any, enc *Encoding) error {
 	if err != nil {
 		return fmt.Errorf("crypto: %v", err)
 	}
-	err = json.Unmarshal(data, v)
+
+	prsData := string(data)
+	var slIdx = strings.Index(prsData, "\n")
+	prsData = prsData[0:slIdx]
+
+	err = json.Unmarshal([]byte(prsData), v)
 	if err != nil {
 		return fmt.Errorf("parsing decrypted data: %v", err)
 	}
